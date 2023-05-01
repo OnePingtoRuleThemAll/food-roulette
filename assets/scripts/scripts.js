@@ -21,8 +21,34 @@ $("#searchButton").click(function(){
     console.log("Search Button has been clicked")
     //getLocation();
     getYelpData();
+    goResults()
     
 });
+
+/*
+Function should save the data in in local storage using a key named "location data".
+Code should save the data in an array. 
+KEVIN CODE HERE
+
+
+KEVIN CODE HERE
+
+
+KEVIN CODE HERE
+
+
+KEVIN CODE HERE
+
+
+KEVIN CODE HERE
+
+
+KEVIN CODE HERE
+
+
+KEVIN CODE HERE
+*/
+
 
 
 function getYelpData(){
@@ -71,43 +97,18 @@ function getYelpData(){
       
 }
 
+function goResults() {
+    console.log("goResults function is running");
+    window.location.href = "results-page.html" 
+  }
+
 /*
 function getLocation(){
 
     console.log("--- Start of getLocation function ---");    
-    var fetchURL = "https://geocode.maps.co/search?q=92620";
+    var fetchURL = "https://geocode.maps.com/search?q=92620";
 
-    console.log(fetchURL);
-
-    fetch(fetchURL2, {
-    })
-    .then(function(response){
-        console.log(response)
-        return response.jason();
-    })
-    .then(function(data){
-        console.log(data);
-        var locationLat = data[10].lat;
-        console.log("This is the lon values: " + locationLat);
-
-        var locationLon = data[10].lon;
-        console.log("This is the lat values: " + locationLon);
-
-        mar locationData = [
-            {
-                lon: locationLat,
-                lat: locationLon
-            }
-        ]
-
-        console.log(locationData);
-        localStorage.setItem("locationData", JSON.stringify(locationData));
-    });
-
-   
-    setTimeout(() => {  
-        getDataToo();
-    }, 900);  
+    
    
     console.log("--- End of getLocation function ---")    
 }
