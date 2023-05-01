@@ -1,0 +1,30 @@
+.container{
+    font-family: 'Encode Sans Expanded', sans-serif;    
+    
+}
+
+#searchButton, #searchAgainButton {
+    width: 50%;
+    background-color: #00bf63;
+   }
+   
+ 
+   .custom-background {
+    background-color: #efebe5;
+  }
+ 
+  #app-logo{
+    padding-top: 50px;
+  }
+ 
+ #results-card{
+ 
+    padding-top: 100px;
+   
+   
+  
+ }
+ 
+ #placeholder1{
+   padding-top: 75px;
+ }
