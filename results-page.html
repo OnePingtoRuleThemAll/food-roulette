@@ -1,58 +1,66 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-      <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
 
-
-    
-    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
 
     <title>Food Roulette!</title>
-</head>
+  </head>
 
-<body class="custom-background">
-    <div class="center-align" id="app-logo">
-        <img class="responsive-img pt-10" src="./assets/media/Food-Roulette-logo.png">
-    </div>
+  <body>
+    <!--i created the logo and button here-->
+    <nav>
+      <div class="nav-wrapper">
+        <img src="./assets/media/logo_2.jpg" alt="" class="logo.png" />
+
+        <ul class="right hide-on-med-and-down">
+          <a href="index.html" class="waves-effect waves-light btn-large"
+            >Home</a
+          >
+          <a href="#" class="waves-effect waves-light btn-large">About</a>
+        </ul>
+      </div>
+    </nav>
+    <!--end here-->
 
     <!--Don't touch anything above this line-->
 
-<section>
-    <div class="row">
+    <section>
+      <div class="row">
         <div class="container">
-            <!--page content goes here-->
-        <div class="col m12 m6">
-          <div class="card">
-            <div class="card-image">
-              <img src="images/sample-1.jpg">
-              <h5 id="results-card-retaurant">Restaurant Name</h5>
+          <!--page content goes here-->
+          <div class="col m12 m6">
+            <div class="card">
+              <div class="card-image">
+                <img src="images/sample-1.jpg" />
+                <h5 id="results-card-retaurant">Restaurant Name</h5>
                 <p id="results-card-reviews">Review Ratings</p>
                 <p id="results-card-address">Address</p>
                 <p id="results-card-phone">Phone Number</p>
                 <p id="results-card-price">Price Range</p>
                 <a id="results-card-link" href="">Yelp Page</a>
                 <p id="results-card-description">Description</p>
-              <span class="card-title"></span>
-            </div>
-            <div class="card-content">
+                <span class="card-title"></span>
               </div>
+              <div class="card-content"></div>
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </section>
-
-
-</body>
-  <script src = "./assets/scripts/results-scripts.js"></script>
+  </body>
+  <script src="./assets/scripts/results-scripts.js"></script>
 
   <!-- Compiled and minified JavaScript -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </html>
