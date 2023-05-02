@@ -17,16 +17,12 @@
   </head>
 
   <body>
-    <!--i created the logo and button here-->
     <nav>
       <div class="nav-wrapper">
-        <img src="./assets/media/logo_2.jpg" alt="" class="logo.png" />
-
-        <ul class="right hide-on-med-and-down">
-          <a href="index.html" class="waves-effect waves-light btn-large"
-            >Home</a
-          >
-          <a href="#" class="waves-effect waves-light btn-large">About</a>
+        <!-- <img src="./assets/media/logo_2.jpg" alt="" class="logo.png" /> -->
+        <a href="#" class="brand-logo center">Food Roulette</a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="index.html">Home</a></li>
         </ul>
       </div>
     </nav>
@@ -38,16 +34,27 @@
       <div class="row">
         <div class="container">
           <!--page content goes here-->
-          <div class="col m12 m6">
-            <div class="card">
-              <div class="card-image">
-                <img src="images/sample-1.jpg" />
+          <div class="col s12 m10 offset-m1">
+            <div class="card-panel">
+              <div class="row">
+                <div class="col s12 m8">
+                  <h5 id="results-card-retaurant">Restaurant Name</h5>
+                  <p id="results-card-address">Address</p>
+                  <a id="results-card-link" href="">Location Info</a>
+                  <a id="results-card-link" href="">Menu</a>
+                  <a id="results-card-link" href="">Google Maps</a>
+                  
+
+
+                </div>
+
+
                 <h5 id="results-card-retaurant">Restaurant Name</h5>
                 <p id="results-card-reviews">Review Ratings</p>
-                <p id="results-card-address">Address</p>
+               
                 <p id="results-card-phone">Phone Number</p>
                 <p id="results-card-price">Price Range</p>
-                <a id="results-card-link" href="">Yelp Page</a>
+              
                 <p id="results-card-description">Description</p>
                 <span class="card-title"></span>
               </div>
@@ -57,7 +64,23 @@
         </div>
       </div>
     </section>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col s12 center-align">
+          <a class="waves-effect waves-light btn btn-large" id="searchAgainButton">Spin Again?</a>
+        </div>
+      </div>
+  </div>
+
+
+
   </body>
+
+
+
+
   <script src="./assets/scripts/results-scripts.js"></script>
 
   <!-- Compiled and minified JavaScript -->
