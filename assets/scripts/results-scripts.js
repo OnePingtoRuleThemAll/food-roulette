@@ -13,7 +13,7 @@ function loadCardData(index){
     console.log("---------------------------------------------------");
     console.log("Start of function three");
 
-    var savedData = JSON.parse(localStorage.getItem("temp"));
+    var savedData = JSON.parse(localStorage.getItem("yelpData"));
     console.log("--- This is the Value of Saved Data ---");
     console.log(savedData);
 

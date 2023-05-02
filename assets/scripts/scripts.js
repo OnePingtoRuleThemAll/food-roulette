@@ -20,8 +20,9 @@ $("#searchButton").click(function(){
     console.log("---------------------------------------------------");
     console.log("Search Button has been clicked")
     //getLocation();
-    getYelpData();
-    goResults()
+    //getYelpData();
+    //goResults();
+    getFourData();
     
 });
 
@@ -49,6 +50,33 @@ KEVIN CODE HERE
 KEVIN CODE HERE
 */
 
+async function getFourData() {
+    try {
+        const searchParams = new URLSearchParams({
+          query: 'chicken',
+          ll: '33.669445,-117.823059',
+          open_now: 'true',
+          sort: 'DISTANCE'
+        });
+        const results = await fetch(
+          `https://api.foursquare.com/v3/places/search?${searchParams}`,
+          {
+            method: 'GET',
+            headers: {
+              Accept: 'application/json',
+              Authorization: 'fsq3zDEjvKjoSO9dxG9JFZAqj3ezLoE1u/LFiM3vemtNyRQ=',
+            }
+          }
+        );
+        const data = await results.json();
+        console.log(data);
+        localStorage.setItem("fourData", JSON.stringify(data))
+        return data;
+    } catch (err) {
+
+        console.error(err);
+    }
+}
 
 
 function getYelpData(){
