@@ -8,8 +8,6 @@
   width: 50%;
   background-color: #00bf63;
 }
-
-
 .custom-background {
   background-color: #efebe5;
 }
@@ -19,11 +17,7 @@
 }
 
 #results-card {
-
   padding-top: 100px;
-
-
-
 }
 
 #placeholder1 {
@@ -35,14 +29,6 @@
   background-color: rgb(37, 7, 7);
   justify-content: space-between;
   align-items: center;
-
-}
-
-img {
-  width: 270px;
-  height: auto;
-  margin: 0;
-  padding-left: 10px;
 
 }
 
