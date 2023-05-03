@@ -8,8 +8,6 @@
   width: 50%;
   background-color: #00bf63;
 }
-
-
 .custom-background {
   background-color: #efebe5;
 }
@@ -18,13 +16,7 @@
   padding-top: 50px;
 }
 
-#results-card {
 
-  padding-top: 100px;
-
-
-
-}
 
 #placeholder1 {
   padding-top: 75px;
@@ -32,17 +24,9 @@
 
 /* nav bar */
 .nav-wrapper {
-  background-color: rgb(37, 7, 7);
+  background-color:  #ff3131;
   justify-content: space-between;
   align-items: center;
-
-}
-
-img {
-  width: 270px;
-  height: auto;
-  margin: 0;
-  padding-left: 10px;
 
 }
 
@@ -50,4 +34,17 @@ img {
   background-color: black;
   color: aliceblue;
   justify-content: space-between;
+}
+
+
+#results-card{
+
+   padding-top: 100px;
+  
+  
+ 
+}
+
+@media screen and (max-width: 992px) {
+
 }

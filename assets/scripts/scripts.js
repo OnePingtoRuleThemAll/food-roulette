@@ -19,42 +19,102 @@ $(function() {
 $("#searchButton").click(function(){
     console.log("---------------------------------------------------");
     console.log("Search Button has been clicked")
-    //getLocation();
+
+    var searchValue = $("#search-textbox").val();
+    console.log(searchValue);
+
+    
+    if (searchValue === ""){
+        console.log("search is empty");
+        return;
+    }
+    
+ 
+    var searchValuePlus = searchValue.replace(/\s+/g, "+");
+
+    console.log(searchValuePlus); 
+
+    var cusineType;
+
+    var typeRadio = document.getElementsByName('group1');
+    console.log(typeRadio); 
+    for( var index = 0 ; index < typeRadio.length; index++){
+        if(typeRadio[index].checked){
+            cusineType = typeRadio[index].value;
+        }
+    }
+    console.log(cusineType);
+
+    localStorage.setItem("cusineType", JSON.stringify(cusineType));
+
+    var zipCode = "90650"
+    getLocation(searchValuePlus);
     //getYelpData();
-    //goResults();
-    getFourData();
+    
+    //getFourData();
+
+    
+    setTimeout(() => {  
+        goResults();
+    }, 1500);  
+    
     
 });
 
-/*
-Function should save the data in in local storage using a key named "location data".
-Code should save the data in an array. 
-KEVIN CODE HERE
+function getLocation(locationSearch, cusineType){
 
+    console.log("--- Start of getLocation function ---");    
+    var fetchURL = "https://geocode.maps.co/search?q=" + locationSearch;
 
-KEVIN CODE HERE
+    console.log(fetchURL);
 
+    fetch(fetchURL, {
+    })
+    .then(function(response){
+        console.log(response)
+        return response.json();
+    })
+    .then(function(data){
+        console.log(data);
+        var locationLat = data[0].lat;
+        console.log("This is the lon values: " + locationLat);
 
-KEVIN CODE HERE
+        var locationLon = data[0].lon;
+        console.log("This is the lat values: " + locationLon);
 
+        var locationData = [
+            {
+                lon: locationLat,
+                lat: locationLon,
+                
+            }
+        ]
+        console.log(locationData);
+        localStorage.setItem("locationData", JSON.stringify(locationData));
+    });
 
-KEVIN CODE HERE
-
-
-KEVIN CODE HERE
-
-
-KEVIN CODE HERE
-
-
-KEVIN CODE HERE
-*/
+   
+    setTimeout(() => {  
+        getFourData()
+    }, 700);  
+   
+    console.log("--- End of getLocation function ---")    
+}
 
 async function getFourData() {
+
+
+    savedData = JSON.parse(localStorage.getItem("locationData"));
+    var cusineType = (localStorage.getItem("cusineType"));
+    var lat = savedData[0].lon;
+    var lon = savedData[0].lat;
+    console.log(cusineType);
+
     try {
         const searchParams = new URLSearchParams({
-          query: 'chicken',
-          ll: '33.669445,-117.823059',
+          query: cusineType,
+          //ll: '33.669445,-117.823059',
+          ll: lat + "," + lon,
           open_now: 'true',
           sort: 'DISTANCE'
         });
@@ -77,6 +137,11 @@ async function getFourData() {
         console.error(err);
     }
 }
+
+function goResults() {
+    console.log("goResults function is running");
+    window.location.href = "results-page.html" 
+  }
 
 
 function getYelpData(){
@@ -125,20 +190,3 @@ function getYelpData(){
       
 }
 
-function goResults() {
-    console.log("goResults function is running");
-    window.location.href = "results-page.html" 
-  }
-
-/*
-function getLocation(){
-
-    console.log("--- Start of getLocation function ---");    
-    var fetchURL = "https://geocode.maps.com/search?q=92620";
-
-    
-   
-    console.log("--- End of getLocation function ---")    
-}
-
-*/
