@@ -96,7 +96,7 @@ function getLocation(locationSearch, cusineType){
    
     setTimeout(() => {  
         getFourData()
-    }, 900);  
+    }, 700);  
    
     console.log("--- End of getLocation function ---")    
 }
