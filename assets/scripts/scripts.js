@@ -20,14 +20,24 @@ $("#searchButton").click(function(){
     console.log("---------------------------------------------------");
     console.log("Search Button has been clicked")
 
-    var cityName = $("#search-textbox").val();
-    console.log(cityName);
+    var searchValue = $("#search-textbox").val();
+    console.log(searchValue);
+
+    if (searchValue === ""){
+        console.log("search is empty");
+        return;
+    }
+
+ 
+    var output = searchValue.replace(/\s+/g, "+");
+
+    console.log(output); 
     
 
     var zipCode = "90650"
-    getLocation(zipCode);
+    getLocation(output);
     //getYelpData();
-    goResults();
+    //goResults();
     //getFourData();
     
 });

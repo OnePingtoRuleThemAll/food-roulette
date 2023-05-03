@@ -9,7 +9,58 @@ $(function() {
   
 });
 
+
 function loadCardData(index){
+
+    console.log("---------------------------------------------------");
+    console.log("Start of function three");
+
+    var savedData = JSON.parse(localStorage.getItem("fourData"));
+    console.log("--- This is the Value of Saved Data ---");
+    console.log(savedData);
+
+    console.log(savedData.results[index]);
+    console.log("Name: " + savedData.results[index].name);
+    console.log("Address: " + savedData.results[index].location.formatted_address);
+    console.log("Link: " + savedData.results[index].fsq_id);
+
+    var linkAppend = "https://foursquare.com/v/" + savedData.results[0].fsq_id;
+    console.log("Link: " + linkAppend);
+
+    var linkMenuAppend = "https://foursquare.com/v/" + savedData.results[0].fsq_id + "/menu";
+    console.log("Link: " + linkMenuAppend);
+
+    console.log("Link: " + savedData.results[index].geocodes.main.latitude);
+    console.log("Link: " + savedData.results[index].geocodes.main.longitude);
+
+
+    
+    var latitude = savedData.results[index].geocodes.main.latitude;
+    var longitude = savedData.results[index].geocodes.main.longitude;
+
+    //https://www.google.com/maps/search/?api=1&query=40.6892,-74.0445
+    var googlemaplink = "https://www.google.com/maps/search/?api=1&query=" + latitude + "," + longitude;
+    console.log("Link to googleMaps: " + googlemaplink);
+
+
+    $("#results-card-retaurant").text(savedData.results[index].name);
+   
+    $("#results-card-address").text("Address:" +savedData.results[index].location.formatted_address);
+    
+    $("#results-card-website").attr("href",linkAppend);
+
+    $("#results-card-menu").attr("href",linkMenuAppend);
+
+    $("#results-card-maps").attr("href",googlemaplink);
+
+
+    console.log("---------------------------------------------------");
+
+
+}
+
+
+function loadCardDataOld(index){
     console.log("---------------------------------------------------");
     console.log("Start of function three");
 
@@ -42,9 +93,9 @@ function loadCardData(index){
 $("#searchAgainButton").click(function(){
     console.log("The spin again button is clicked");
 
-    var random = Math.floor(Math.random() * 4);
+    var random = Math.floor(Math.random() * 10);
     console.log(random);
-    loadCardData(index);
+    loadCardData(random);
 
 
 });

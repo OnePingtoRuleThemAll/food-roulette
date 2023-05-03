@@ -16,12 +16,15 @@
     <title>Food Roulette!</title>
   </head>
 
-  <body>
+  <body class="custom-background" >
     <nav>
       <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo center" > 
+          <img src="./assets/media/food-roulette-long-mini.png" ">
+        </a>
         <!-- <img src="./assets/media/logo_2.jpg" alt="" class="logo.png" /> -->
-        <a href="#" class="brand-logo center">Food Roulette</a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <!-- <a href="#" class="brand-logo center">Food Roulette</a> -->
+        <ul id="nav-mobile" class="left ">
           <li><a href="index.html">Home</a></li>
         </ul>
       </div>
@@ -30,7 +33,7 @@
 
     <!--Don't touch anything above this line-->
 
-    <section>
+    <section id="results-card">
       <div class="row">
         <div class="container">
           <!--page content goes here-->
@@ -40,9 +43,13 @@
                 <div class="col s12 m8">
                   <h5 id="results-card-retaurant">Restaurant Name</h5>
                   <p id="results-card-address">Address</p>
-                  <p id="results-card-link" href="">Location Info</p>
-                  <p id="results-card-link" href="">Menu</p>
-                  <p id="results-card-link" href="">Google Maps</p>
+                  <ul><a id="results-card-website" href="">Location Info</a></ul>
+                  <ul><a id="results-card-menu" href="">Menu</a></ul>
+                  <ul><a id="results-card-maps" href="">Google Maps</a></ul>
+                    
+                   
+                  
+                 
                 </div>
                 <div class="col s12 m4">  
                   <img class ="responsive-img " id = "placeholder1" src="./assets/media/burger-placeholder.jpg" alt="Restaurant Image">
