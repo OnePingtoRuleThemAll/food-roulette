@@ -24,10 +24,10 @@ function loadCardData(index){
     console.log("Address: " + savedData.results[index].location.formatted_address);
     console.log("Link: " + savedData.results[index].fsq_id);
 
-    var linkAppend = "https://foursquare.com/v/" + savedData.results[0].fsq_id;
+    var linkAppend = "https://foursquare.com/v/" + savedData.results[index].fsq_id;
     console.log("Link: " + linkAppend);
 
-    var linkMenuAppend = "https://foursquare.com/v/" + savedData.results[0].fsq_id + "/menu";
+    var linkMenuAppend = "https://foursquare.com/v/" + savedData.results[index].fsq_id + "/menu";
     console.log("Link: " + linkMenuAppend);
 
     console.log("Link: " + savedData.results[index].geocodes.main.latitude);

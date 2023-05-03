@@ -23,26 +23,45 @@ $("#searchButton").click(function(){
     var searchValue = $("#search-textbox").val();
     console.log(searchValue);
 
+    
     if (searchValue === ""){
         console.log("search is empty");
         return;
     }
-
- 
-    var output = searchValue.replace(/\s+/g, "+");
-
-    console.log(output); 
     
+ 
+    var searchValuePlus = searchValue.replace(/\s+/g, "+");
+
+    console.log(searchValuePlus); 
+
+    var cusineType;
+
+    var typeRadio = document.getElementsByName('group1');
+    console.log(typeRadio); 
+    for( var index = 0 ; index < typeRadio.length; index++){
+        if(typeRadio[index].checked){
+            cusineType = typeRadio[index].value;
+        }
+    }
+    console.log(cusineType);
+
+    localStorage.setItem("cusineType", JSON.stringify(cusineType));
 
     var zipCode = "90650"
-    getLocation(output);
+    getLocation(searchValuePlus);
     //getYelpData();
-    //goResults();
+    
     //getFourData();
+
+    
+    setTimeout(() => {  
+        goResults();
+    }, 1500);  
+    
     
 });
 
-function getLocation(locationSearch){
+function getLocation(locationSearch, cusineType){
 
     console.log("--- Start of getLocation function ---");    
     var fetchURL = "https://geocode.maps.co/search?q=" + locationSearch;
@@ -66,7 +85,8 @@ function getLocation(locationSearch){
         var locationData = [
             {
                 lon: locationLat,
-                lat: locationLon
+                lat: locationLon,
+                
             }
         ]
         console.log(locationData);
@@ -85,12 +105,14 @@ async function getFourData() {
 
 
     savedData = JSON.parse(localStorage.getItem("locationData"));
+    var cusineType = (localStorage.getItem("cusineType"));
     var lat = savedData[0].lon;
     var lon = savedData[0].lat;
+    console.log(cusineType);
 
     try {
         const searchParams = new URLSearchParams({
-          query: 'Indian',
+          query: cusineType,
           //ll: '33.669445,-117.823059',
           ll: lat + "," + lon,
           open_now: 'true',
