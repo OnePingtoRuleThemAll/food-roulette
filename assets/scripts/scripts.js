@@ -56,7 +56,7 @@ $("#searchButton").click(function(){
     
     setTimeout(() => {  
         goResults();
-    }, 2000);  
+    }, 3000);  
     
     
 });
@@ -96,7 +96,7 @@ function getLocation(locationSearch, cusineType){
    
     setTimeout(() => {  
         getFourData()
-    }, 500);  
+    }, 600);  
    
     console.log("--- End of getLocation function ---")    
 }
