@@ -8,6 +8,7 @@
   width: 50%;
   background-color: #00bf63;
 }
+
 .custom-background {
   background-color: #efebe5;
 }
@@ -16,7 +17,7 @@
   padding-top: 50px;
 }
 
-
+/* teaste commmet */
 
 #placeholder1 {
   padding-top: 75px;
@@ -24,7 +25,7 @@
 
 /* nav bar */
 .nav-wrapper {
-  background-color:  #ff3131;
+  background-color: #ff3131;
   justify-content: space-between;
   align-items: center;
 
@@ -37,14 +38,12 @@
 }
 
 
-#results-card{
+#results-card {
 
-   padding-top: 100px;
-  
-  
- 
-}
+  padding-top: 100px;
 
-@media screen and (max-width: 992px) {
+
 
 }
+
+@media screen and (max-width: 992px) {}
