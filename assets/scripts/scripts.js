@@ -1,14 +1,6 @@
-
-var apiKey = "PEteHRi4pn19m4PkY03i1O2H7ejO7GKDykl2E9931oTFtZfBC5Q_c1ujmEo3rWzyB-OT7GoMwFTmSM_8N2heEa9CJbhivTkR9okeeYvjwIW7Jo_B073-ihddE6tJZHYx";
-
-/*
-https://cors-anywhere.herokuapp.com/corsdemo
-This API enables cross-origin requests to anywhere
-Cross-origin resource sharing (CORS) is a browser security feature that restricts 
-cross-origin HTTP requests that are initiated from scripts running in the browser. */
-
-
+//Start of the Scripts JS code 
 $(function() {
+    //Test function to test if JS code is linked to HTML
     console.log("---------------------------------------------------");
     console.log("Index.html is now loading");
  
@@ -16,44 +8,50 @@ $(function() {
   
 });
 
+//Search button logic. Function is called when the Search button is pressed. 
 $("#searchButton").click(function(){
     console.log("---------------------------------------------------");
     console.log("Search Button has been clicked")
 
+    //Assigns the value in the text box to a value. 
     var searchValue = $("#search-textbox").val();
-    console.log(searchValue);
+    //console.log(searchValue);
 
-    
+    //Empty seatch result validation. 
     if (searchValue === ""){
-        console.log("search is empty");
+        //console.log("search is empty");
         return;
     }
     
- 
+    //Removes spaces from the string and replaces with the + symbol
     var searchValuePlus = searchValue.replace(/\s+/g, "+");
 
-    console.log(searchValuePlus); 
+    //console.log(searchValuePlus); 
 
+    //Declares the cusine type that is selected 
     var cusineType;
 
+    //Grabs the ids of the radio buttons on the page
     var typeRadio = document.getElementsByName('group1');
-    console.log(typeRadio); 
+    //console.log(typeRadio); 
+    
+    //Returns the id of the selected radio button    
     for( var index = 0 ; index < typeRadio.length; index++){
         if(typeRadio[index].checked){
             cusineType = typeRadio[index].value;
         }
     }
-    console.log(cusineType);
+    //console.log(cusineType);
 
+    //Stores the value in local storage with the key of cusine type
     localStorage.setItem("cusineType", JSON.stringify(cusineType));
 
-    var zipCode = "90650"
+   
+    //Calls the getLocation function to gret the lon and lat. 
     getLocation(searchValuePlus);
-    //getYelpData();
-    
-    //getFourData();
 
-    
+
+    //Triggers the next page to load after a set time period. 
     setTimeout(() => {  
         goResults();
     }, 3000);  
@@ -61,13 +59,16 @@ $("#searchButton").click(function(){
     
 });
 
-function getLocation(locationSearch, cusineType){
+//Function to get the location data using the geocode API. 
+function getLocation(locationSearch){
 
     console.log("--- Start of getLocation function ---");    
+    //URL constructor
     var fetchURL = "https://geocode.maps.co/search?q=" + locationSearch;
 
     console.log(fetchURL);
 
+    //Fetch call to get the data from the geocode API. 
     fetch(fetchURL, {
     })
     .then(function(response){
@@ -76,12 +77,15 @@ function getLocation(locationSearch, cusineType){
     })
     .then(function(data){
         console.log(data);
+
+        //Sets the data into variables
         var locationLat = data[0].lat;
         console.log("This is the lon values: " + locationLat);
 
         var locationLon = data[0].lon;
         console.log("This is the lat values: " + locationLon);
 
+        //Creates a json array to be saved in local storage. 
         var locationData = [
             {
                 lon: locationLat,
@@ -90,10 +94,11 @@ function getLocation(locationSearch, cusineType){
             }
         ]
         console.log(locationData);
+        //Data is saved to local storage. 
         localStorage.setItem("locationData", JSON.stringify(locationData));
     });
 
-   
+   //Calls the founchtion to get the four square data. 
     setTimeout(() => {  
         getFourData()
     }, 600);  
@@ -101,15 +106,19 @@ function getLocation(locationSearch, cusineType){
     console.log("--- End of getLocation function ---")    
 }
 
+//Function to get the foursquare data
 async function getFourData() {
 
-
+    //Retrieves the location data from local storage
     savedData = JSON.parse(localStorage.getItem("locationData"));
+    //Assigns the cusine type from the value in local storage. 
     var cusineType = (localStorage.getItem("cusineType"));
+    //Retrieves the lon and lat from local storage. 
     var lat = savedData[0].lon;
     var lon = savedData[0].lat;
-    console.log(cusineType);
+    //console.log(cusineType);
 
+    //Function to grab the foursquare data from the four API
     try {
         const searchParams = new URLSearchParams({
           query: cusineType,
@@ -129,7 +138,8 @@ async function getFourData() {
           }
         );
         const data = await results.json();
-        console.log(data);
+        //console.log(data);
+        //Saves the data in local storage to be grabbed by the results page. 
         localStorage.setItem("fourData", JSON.stringify(data))
         return data;
     } catch (err) {
@@ -138,18 +148,22 @@ async function getFourData() {
     }
 }
 
+// Function allows the page to go to the next page when the search button is clicked. 
 function goResults() {
     console.log("goResults function is running");
     window.location.href = "results-page.html" 
   }
 
 
+/*
+
+LAGACY YELP CODE
 function getYelpData(){
 
     console.log("---------------------------------------------------");
     console.log("Start of function One");
 
-    /*
+ 
     savedData = JSON.parse(localStorage.getItem("locationData"));
     console.log(savedData);
     console.log(savedData[0].lon);
@@ -157,7 +171,7 @@ function getYelpData(){
 
     var lat = savedData[0].lon;
     var lon = savedData[0].lat;
-    */
+ 
 
 
     var corsAnywhereUrl = "https://cors-anywhere.herokuapp.com/";
@@ -189,4 +203,4 @@ function getYelpData(){
     });
       
 }
-
+*/
