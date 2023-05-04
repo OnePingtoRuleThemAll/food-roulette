@@ -1,50 +1,57 @@
+/* Font family for the container */
+
 .container {
   font-family: 'Encode Sans Expanded', sans-serif;
 
 }
 
+/* Styles for searchButton and searchAgainButton */
 #searchButton,
 #searchAgainButton {
   width: 50%;
   background-color: #00bf63;
 }
+
+/* Background color for elements with the class custom-background */
 .custom-background {
   background-color: #efebe5;
 }
 
+/* Padding from the top for the element with id app-logo */
 #app-logo {
   padding-top: 50px;
 }
 
 
-
+/* Padding from the top for the element with id placeholder1 */
 #placeholder1 {
   padding-top: 75px;
 }
 
-/* nav bar */
+/* Styles for the navigation bar */
 .nav-wrapper {
-  background-color:  #ff3131;
+  background-color: #ff3131;
   justify-content: space-between;
   align-items: center;
 
 }
 
+/* Styles for elements with the class waves-effect */
 .waves-effect {
   background-color: black;
   color: aliceblue;
   justify-content: space-between;
 }
 
+/* Padding from the top for the element with id results-card */
+#results-card {
 
-#results-card{
+  padding-top: 100px;
 
-   padding-top: 100px;
-  
-  
- 
-}
 
-@media screen and (max-width: 992px) {
 
 }
+
+/* Styles applied when the screen width is less than or equal to 992px */
+/* You can add your specific styles for smaller screens here */
+@media screen and (max-width: 992px) {}
